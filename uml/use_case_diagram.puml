@@ -1,0 +1,20 @@
+
+@startuml
+actor "Job Seeker" as User
+rectangle "AI-powered Portfolio Website Generator" {
+    usecase "Enter profile data" as UC1
+    usecase "Generate portfolio package" as UC2
+    usecase "Generate portfolio website" as UC3
+    usecase "Generate AI visual" as UC4
+    usecase "Generate requirements\nand user stories" as UC5
+    usecase "Generate UML diagrams" as UC6
+    usecase "View or download outputs" as UC7
+}
+User -- UC1
+User -- UC2
+User -- UC7
+UC2 ..> UC3 : <<include>>
+UC2 ..> UC4 : <<include>>
+UC2 ..> UC5 : <<include>>
+UC2 ..> UC6 : <<include>>
+@enduml

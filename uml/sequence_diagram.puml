@@ -1,0 +1,19 @@
+
+@startuml
+actor User
+participant Frontend
+participant "Flask API" as API
+participant "APIFree LLM" as LLM
+participant "Image Generation API" as ImageAPI
+participant "Generated Outputs" as Outputs
+User -> Frontend: Enter profile data
+Frontend -> API: Submit generation request
+API -> LLM: Send profile and prompt templates
+LLM --> API: Return website content
+API -> ImageAPI: Send visual generation prompt
+ImageAPI --> API: Return generated image
+API -> Outputs: Save HTML, API, docs, UML
+Outputs --> API: Confirm files created
+API --> Frontend: Return package
+Frontend --> User: Display/download outputs
+@enduml
